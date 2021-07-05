@@ -16,8 +16,8 @@ function getJobs() {
         })
 }
 
-function showJobs(jobs) {
-    let jobsContainer = document.querySelector(".job-container");
+function showJobs(jobs){
+    let jobsContainer = document.querySelector(".jobs-container");
     console.log(jobsContainer);
     let jobsHTML = "";
    jobs.forEach(job =>{
@@ -25,9 +25,9 @@ function showJobs(jobs) {
         jobsHTML += `
         <div class="Job-tile">
 
-        < div class="top" >
+        <div class="top">
 
-            <img src="${job.logo}" />
+            <img src="${job.logo}"/>
 
         <span class="material-icons more horiz">more_horiz</span>
     
@@ -35,7 +35,7 @@ function showJobs(jobs) {
     
     <div class="rolename">
     
-    <span> ${job.roleName}</span>
+    <span>${job.roleName}</span>
     
     </div>
     

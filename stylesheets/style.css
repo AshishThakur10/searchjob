@@ -98,7 +98,6 @@ header{
     gap: 40px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    background: #e47d7d;
 }
 
 .job-tile{
