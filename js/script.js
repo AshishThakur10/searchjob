@@ -4,16 +4,36 @@ document.querySelector(".button-container")
     .addEventListener("click", () => {
         console.log(" I was ckicked");
         let text = document.getElementById("filter-jobs").value;
-        console.log(text);
+        getJobs().then(jobs =>{
+            let filteredJobs= filterjobs(jobs,text);
+            showJobs(filteredJobs);
+        })
     })
 
-function getJobs() {
+function getJobs(){
     return fetch("data.json")
         .then(response => response.json())
-        .then(data => {
-            console.log(data);
+        .then(data => {           
             return data
         })
+}
+function filterjobs(jobs,searchText){
+    if(searchText){
+        let filterjobs =jobs.filter(job =>{
+            if(job.roleName.toLowerCase().includes(searchText)
+            || job.type.toLowerCase().includes(searchText)
+            || job.company.toLowerCase().includes(searchText)
+            || job.requirements.content.toLowerCase().content
+            .includes(searchText)) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+         return fliteredJobs;
+    }else {
+        return jobs;
+    }  
 }
 
 function showJobs(jobs){
@@ -60,6 +80,6 @@ function showJobs(jobs){
     jobsContainer.innerHTML = jobsHTML;
 }
 
-getJobs().then(data =>{
+getJobs().then(data => {
     showJobs(data);
 });
