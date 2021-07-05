@@ -17,20 +17,19 @@ function getJobs(){
             return data
         })
 }
-function filterjobs(jobs,searchText){
+function filterjobs(jobs, searchText){
     if(searchText){
-        let filterjobs =jobs.filter(job =>{
+        let filteredjobs =jobs.filter(job => {
             if(job.roleName.toLowerCase().includes(searchText)
             || job.type.toLowerCase().includes(searchText)
             || job.company.toLowerCase().includes(searchText)
-            || job.requirements.content.toLowerCase().content
-            .includes(searchText)) {
+            || job.requirements.content.toLowerCase().includes(searchText)) {
                 return true;
             } else {
                 return false;
             }
         })
-         return fliteredJobs;
+         return filteredjobs;
     }else {
         return jobs;
     }  
